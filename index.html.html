@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Upper Limb Images with Mnemonics</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; background: #f4f6f8; }
+  h2 { color: #004080; margin-top: 20px; }
+  button {
+    background: #0078d7; color: white; border: none;
+    padding: 10px 15px; border-radius: 8px; margin: 6px;
+    cursor: pointer; font-size: 15px;
+  }
+  button:hover { background: #005fa3; }
+
+  .image-container { display: none; margin-top: 15px; }
+  .image-container img {
+    width: 90%; max-width: 400px; border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    cursor: pointer; transition: all 0.3s ease-in-out;
+  }
+
+  .fullscreen {
+    position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.9);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+  }
+
+  .fullscreen img {
+    width: 95%; max-width: 600px; border-radius: 15px;
+  }
+
+  .mnemonic-text {
+    display: none; margin-top: 10px;
+    font-size: 18px; font-weight: bold;
+  }
+
+  .color1 { color: red; }
+  .color2 { color: orange; }
+  .color3 { color: green; }
+  .color4 { color: blue; }
+  .color5 { color: purple; }
+  .color6 { color: brown; }
+  .color7 { color: teal; }
+  .color8 { color: magenta; }
+</style>
+</head>
+<body>
+
+<h2>Upper Limb Images with Mnemonics. Project Work by Ahmad Kabeer (BMS/ANT/20/1068) </h2>
+
+<!-- BUTTONS -->
+<button onclick="showImage('brachial')">Brachial Plexus Branches</button>
+<button onclick="showImage('cubital')">Contents of Cubital Fossa</button>
+<button onclick="showImage('musculocutaneousnerve')">Musculocutaneous Nerve Muscles</button>
+<button onclick="showImage('radialnerve')">Radial Nerve Muscles</button>
+<button onclick="showImage('mediannerve')">Median Nerve Muscles</button>
+<button onclick="showImage('intrinsichand')">Intrinsic Hand Muscles</button>
+<button onclick="showImage('thenar')">Thenar Muscles</button>
+<button onclick="showImage('armflexors')">Arm Flexors</button>
+<button onclick="showImage('forearmflexors')">Forearm Flexors</button>
+<button onclick="showImage('sensoryandmotorcranialnerves')">Sensory and Motor Cranial Nerves</button>
+<button onclick="showImage('cranialnerves')">Cranial Nerves</button>
+<button onclick="showImage('radialulnarandmediannerveinjuries')">Radial, Ulnar and Median Nerve Injuries</button>
+<button onclick="showImage('elbowextensors')">Elbow Extensors</button>
+<button onclick="showImage('rotatorcuff')">Rotator Cuff Muscles</button>
+<button onclick="showImage('carpalbones')">Carpal Bones</button>
+
+<!-- IMAGES WITH MNEMONICS -->
+<div id="brachial" class="image-container">
+  <img src="brachial.jpg" alt="Brachial Plexus" onclick="toggleFullScreen(this)">
+  <br>
+  <button onclick="showMnemonic('mnemonicBrachial')">Show Mnemonic</button>
+  <div id="mnemonicBrachial" class="mnemonic-text">MARMU</div>
+</div>
+
+<div id="cubital" class="image-container">
+  <img src="cubital.jpg" alt="Cubital Fossa" onclick="toggleFullScreen(this)">
+  <br>
+  <button onclick="showMnemonic('mnemonicCubital')">Show Mnemonic</button>
+  <div id="mnemonicCubital" class="mnemonic-text">
+    <b class="color1">M</b>ind <b class="color2">B</b>lowing <b class="color3">B</b>ook <b class="color4">R</b>eader
+  </div>
+</div>
+
+<div id="carpalbones" class="image-container">
+  <img src="carpalbones.jpg" alt="Carpal Bones" onclick="toggleFullScreen(this)">
+  <br>
+  <button onclick="showMnemonic('mnemonicCarpal')">Show Mnemonic</button>
+  <div id="mnemonicCarpal" class="mnemonic-text">
+    <b class="color1">S</b>he <b class="color2">L</b>earned <b class="color3">T</b>hrough
+    <b class="color4">P</b>racticing, <b class="color5">T</b>raining
+    <b class="color6">T</b>ill <b class="color7">C</b>losing
+    <b class="color8">H</b>our.
+  </div>
+</div>
+
+<!-- IMAGES WITHOUT MNEMONICS -->
+<div id="musculocutaneousnerve" class="image-container"><img src="musculocutaneousnerve.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="radialnerve" class="image-container"><img src="radialnerve.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="mediannerve" class="image-container"><img src="mediannerve.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="intrinsichand" class="image-container"><img src="intrinsichand.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="thenar" class="image-container"><img src="thenar.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="armflexors" class="image-container"><img src="armflexors.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="forearmflexors" class="image-container"><img src="forearmflexors.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="sensoryandmotorcranialnerves" class="image-container"><img src="sensoryandmotorcranialnerves.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="cranialnerves" class="image-container"><img src="cranialnerves.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="radialulnarandmediannerveinjuries" class="image-container"><img src="radialulnarandmediannerveinjuries.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="elbowextensors" class="image-container"><img src="elbowextensors.jpg" onclick="toggleFullScreen(this)"></div>
+<div id="rotatorcuff" class="image-container"><img src="rotatorcuff.jpg" onclick="toggleFullScreen(this)"></div>
+
+<script>
+function showImage(id) {
+  document.querySelectorAll('.image-container').forEach(c => {
+    c.style.display = (c.id === id) ? 'block' : 'none';
+  });
+  document.querySelectorAll('.mnemonic-text').forEach(m => m.style.display = 'none');
+}
+
+function showMnemonic(id) {
+  const text = document.getElementById(id);
+  text.style.display = text.style.display === 'none' ? 'block' : 'none';
+}
+
+function toggleFullScreen(img) {
+  if (img.classList.contains('expanded')) {
+    document.body.removeChild(document.querySelector('.fullscreen'));
+    img.classList.remove('expanded');
+  } else {
+    const fullscreenDiv = document.createElement('div');
+    fullscreenDiv.classList.add('fullscreen');
+    const clone = img.cloneNode(true);
+    clone.onclick = () => toggleFullScreen(img);
+    fullscreenDiv.appendChild(clone);
+    document.body.appendChild(fullscreenDiv);
+    img.classList.add('expanded');
+  }
+}
+</script>
+
+</body>
+</html>
+<link rel="icon" type="image/png" href="icon.png">
